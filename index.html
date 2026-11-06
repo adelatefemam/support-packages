@@ -219,6 +219,70 @@ footer{border-top:1px solid var(--border);padding-block:26px;text-align:center;c
 /* Silver card: red border to stand out */
 .card[data-pkg="silver"],.card[data-pkg="silver"].active{border-color:#c4122f;
   box-shadow:0 0 0 1px #c4122f,0 18px 60px rgba(196,18,47,.25),var(--shadow);}
+
+/* ===== Hours chip (package cards) ===== */
+.card .hours-chip{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:rgba(244,199,184,.10);border:1px solid rgba(244,199,184,.35);color:#fff1ec;padding:4px 12px;border-radius:999px;font-size:.84rem;font-weight:700;margin:-6px 0 16px;}
+.card .hours-chip svg{width:14px;height:14px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+/* chips may contain a small icon; details tagline */
+.chip{display:inline-flex;align-items:center;gap:6px;}
+.chip svg{width:14px;height:14px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.d-tagline{color:var(--muted);font-size:.98rem;margin-top:2px;}
+
+/* sub-lists inside a service block */
+.service-list{margin:8px 0 0;padding-inline-start:0;list-style:none;display:grid;gap:5px;color:var(--muted);font-size:.93rem;}
+.service-list li{display:flex;gap:8px;align-items:flex-start;line-height:1.6;}
+.service-list li::before{content:'\2013';color:var(--accent);flex:0 0 auto;}
+
+/* per-package important limitations */
+.limits-list{list-style:none;display:grid;gap:10px;background:rgba(200,60,80,.10);border:1px solid rgba(200,60,80,.45);border-radius:16px;padding:18px 20px;margin-top:4px;}
+.limits-list li{display:flex;gap:10px;align-items:flex-start;color:#ffd9de;font-size:.95rem;line-height:1.7;}
+.limits-list svg{flex:0 0 auto;width:18px;height:18px;margin-top:5px;fill:none;stroke:#ef8a99;stroke-width:2.4;stroke-linecap:round;}
+
+/* ===== Policy sections: limits / response / exclusions / FAQ ===== */
+.policies{padding-block:8px 44px;}
+.policy{scroll-margin-top:16px;}
+.policy + .policy{margin-top:44px;}
+.policy .section-head{margin-bottom:20px;}
+.policy .section-head h2{font-size:clamp(1.45rem,3vw,2rem);}
+.policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.limit-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px 18px;text-align:center;box-shadow:var(--shadow);}
+.limit-card.featured{border-color:#c4122f;box-shadow:0 0 0 1px #c4122f,0 18px 60px rgba(196,18,47,.18),var(--shadow);}
+.limit-card h4{font-size:1.08rem;font-weight:800;margin-bottom:10px;}
+.limit-num{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.limit-num .up{font-size:.8rem;font-weight:700;color:var(--muted);}
+.limit-num bdi{font-size:2.6rem;font-weight:800;line-height:1.15;color:var(--accent);direction:ltr;unicode-bidi:isolate;}
+.limit-unit{font-size:.9rem;font-weight:700;color:var(--muted);}
+.rules-title{font-size:1.08rem;font-weight:800;margin:24px 0 12px;}
+.rules{list-style:none;display:grid;gap:10px;background:rgba(255,255,255,.03);border:1px dashed var(--border);border-radius:16px;padding:18px 20px;}
+.rules li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.7;}
+.rules svg{flex:0 0 auto;width:18px;height:18px;margin-top:5px;fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round;}
+.resp-time{font-size:1.05rem;font-weight:800;color:var(--accent);line-height:1.5;}
+.note{display:flex;gap:10px;align-items:flex-start;background:rgba(244,199,184,.07);border:1px solid rgba(244,199,184,.35);border-radius:16px;padding:14px 18px;color:#fff1ec;font-size:.95rem;line-height:1.8;margin-top:16px;}
+.note svg{flex:0 0 auto;width:17px;height:17px;margin-top:5px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.note.warn{background:rgba(200,60,80,.10);border-color:rgba(200,60,80,.45);color:#ffd9de;}
+.excl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.excl-item{display:flex;gap:9px;align-items:flex-start;background:rgba(200,60,80,.08);border:1px solid rgba(200,60,80,.35);border-radius:14px;padding:12px 14px;color:var(--muted);font-size:.92rem;line-height:1.65;}
+.excl-item svg{flex:0 0 auto;width:16px;height:16px;margin-top:4px;fill:none;stroke:#ef8a99;stroke-width:2.4;stroke-linecap:round;}
+.faq{display:grid;gap:10px;max-width:860px;margin-inline:auto;}
+.faq details{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.faq summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 18px;font-weight:700;font-size:.98rem;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:'+';flex:0 0 auto;font-weight:800;font-size:1.2rem;color:var(--accent);line-height:1;}
+.faq details[open] summary::after{content:'\2212';}
+.faq summary:hover{color:var(--accent);}
+.faq .a{padding:0 18px 15px;color:var(--muted);font-size:.94rem;line-height:1.8;}
+
+@media (max-width:980px){
+  .policy-grid{grid-template-columns:1fr;max-width:520px;margin-inline:auto;}
+  .excl-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  .excl-grid{grid-template-columns:1fr;}
+  .rules{padding:14px 16px;}
+  .limits-list{padding:14px 16px;}
+}
+
 </style>
 </head>
 
@@ -269,6 +333,9 @@ footer{border-top:1px solid var(--border);padding-block:26px;text-align:center;c
     <section class="details-wrap" aria-live="polite">
       <article class="details" id="details" hidden></article>
     </section>
+
+    <!-- ===== Policies: monthly service limits, response time, exclusions, FAQ ===== -->
+    <section class="policies" id="policies"></section>
   </main>
 </div>
 
@@ -300,6 +367,9 @@ footer{border-top:1px solid var(--border);padding-block:26px;text-align:center;c
     email:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.6-.1L12 11.6l7.4-6.2H4.6zM20 7.6l-7.36 6.17a1 1 0 0 1-1.28 0L4 7.6v10.9c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V7.6z"/></svg>'
   };
   var CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  var CLOCK = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+  var DASH = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>';
+  var CROSS = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 
   /* =====================================================
      UI TRANSLATIONS
@@ -316,9 +386,51 @@ footer{border-top:1px solid var(--border);padding-block:26px;text-align:center;c
       viewDetails:'عرض التفاصيل', choose:'اختيار الباقة', popular:'الأكثر طلباً',
       subscribe:'اشترك الأن', close:'إغلاق التفاصيل',
       response:'زمن الاستجابة', included:'الخدمات المشمولة', gets:'ما تحصل عليه:',
+      pkgLimits:'حدود مهمة للباقة',
       inheritLead:'تشمل هذه الباقة كل ما في ', inheritTail:'، بالإضافة إلى ما يلي:',
       scopeInTitle:'ما يغطيه الاشتراك الشهري',
       scopeOutTitle:'ما هو خارج نطاق الاشتراك',
+      limitsTitle:'حدود الخدمة الشهرية',
+      limitsDesc:'كل باقة تتضمن حداً شهرياً من ساعات التنفيذ تغطي المهام المذكورة في نطاقها. هذه حدود محددة — وليست دعماً غير محدود.',
+      upTo:'حتى', hoursUnit:'ساعة عمل / شهرياً',
+      limitsRulesTitle:'كيف تعمل الساعات الشهرية',
+      limitsRules:[
+        'ساعات العمل الشهرية تغطي مهام التنفيذ المؤهلة ضمن نطاق الباقة.',
+        'الساعات غير المستخدمة لا تُرحّل إلى الشهر التالي.',
+        'العمل الذي يتجاوز الحد الشهري يتطلب موافقتك وتسعيراً منفصلاً.',
+        'التطوير الجديد ليس مشمولاً تلقائياً في الدعم الفني.',
+        'تخضع جميع الطلبات للجدوى الفنية والنطاق المتفق عليه.'
+      ],
+      respTitle:'سياسة زمن الاستجابة',
+      respDesc:'استهداف الرد الأولي لكل باقة:',
+      respNote:'زمن الاستجابة يعني استلام الطلب وتقييمه المبدئي، وليس وقتاً مضموناً لحل المشكلة. يعتمد الحل على تعقيد المشكلة والصلاحيات المطلوبة وموافقات العميل وأي أطراف خارجية مرتبطة بها.',
+      businessHours:'ساعات العمل: من الأحد إلى الخميس، من 10:00 صباحاً حتى 6:00 مساءً بتوقيت القاهرة، باستثناء العطلات الرسمية. الدعم غير متاح على مدار الساعة.',
+      exclTitle:'ما هو غير مشمول',
+      exclDesc:'أنواع العمل التالية يتم تقييمها وتسعيرها بشكل منفصل بناءً على تقييم فني:',
+      exclItems:[
+        'ميزات مخصصة جديدة',
+        'تعديلات أو ترقيات كبيرة للثيم',
+        'إعادة تصميم المتجر بالكامل',
+        'صفحات هبوط مخصصة معقدة',
+        'تكاملات متقدمة مع طرف ثالث',
+        'اشتراكات تطبيقات جديدة أو ثيمات مدفوعة',
+        'مهام إدخال كتالوج منتجات كبيرة',
+        'الترحيلات الكبيرة (Migrations)',
+        'العمل الذي يتجاوز الحد الشهري المتفق عليه'
+      ],
+      exclRule:'أي عمل خارج نطاق باقتك يتم تقييمه وتسعيره بشكل منفصل. لا يبدأ أي عمل إضافي إلا بعد موافقتك.',
+      faqTitle:'الشروط التجارية والأسئلة الشائعة',
+      faqDesc:'إجابات مختصرة عن أكثر الأسئلة التجارية شيوعاً.',
+      faq:[
+        {q:'كيف يتم الدفع؟', a:'جميع الباقات تُدار كاشتراك شهري. يغطي الاشتراك خدمات وساعات العمل الشهرية الخاصة بالباقة فقط.'},
+        {q:'هل تُرحّل الساعات غير المستخدمة إلى الشهر التالي؟', a:'لا. الساعات الشهرية غير المستخدمة لا تتراكم ولا تُرحّل إلى الشهر التالي.'},
+        {q:'هل يمكن طلب عمل خارج نطاق الباقة؟', a:'نعم. أي عمل خارج نطاق باقتك يتم تقييمه وتسعيره بشكل منفصل، ولا يبدأ إلا بعد موافقتك.'},
+        {q:'هل زمن الاستجابة يساوي زمن الحل؟', a:'لا. زمن الاستجابة يعني استلام الطلب وتقييمه المبدئي فقط. أما الحل فيعتمد على تعقيد المشكلة والصلاحيات المطلوبة وموافقات العميل والأطراف الخارجية المرتبطة بها.'},
+        {q:'هل تضمن زيادة المبيعات أو معدل التحويل؟', a:'لا. لا أضمن نتائج محددة للمبيعات أو الإيرادات أو معدل التحويل. أعمال التحسين تحسّن البنية وسهولة الاستخدام، لكن النتائج تعتمد على عوامل كثيرة خارج نطاق الخدمة الشهرية.'},
+        {q:'هل اشتراكات التطبيقات والثيمات المدفوعة مشمولة؟', a:'لا. اشتراكات الطرف الثالث والتراخيص والثيمات المدفوعة غير مشمولة في الباقات ما لم يُذكر صراحةً في الاتفاق.'},
+        {q:'هل يشمل الدعم الفني التطوير الجديد؟', a:'لا. الدعم الفني يغطي مشاكل المتجر الحالية المؤهلة فقط. الميزات والأقسام الجديدة وأعمال التطوير المخصص يتم تقييمها وتسعيرها بشكل منفصل.'},
+        {q:'متى يتوفر الدعم؟', a:'ساعات العمل من الأحد إلى الخميس، من 10:00 صباحاً حتى 6:00 مساءً بتوقيت القاهرة، باستثناء العطلات الرسمية. الدعم غير متاح على مدار الساعة، ويُقاس زمن الاستجابة بساعات العمل.'}
+      ],
       footer:'© 2026 عادل عاطف إمام — مطور شوبيفاي',
       social:{linkedin:'LinkedIn',behance:'Behance',nzmly:'Nzmly',whatsapp:'واتساب',email:'البريد الإلكتروني'}
     },
@@ -333,9 +445,51 @@ footer{border-top:1px solid var(--border);padding-block:26px;text-align:center;c
       viewDetails:'View details', choose:'Choose package', popular:'Most popular',
       subscribe:'Subscribe now', close:'Close details',
       response:'Response time', included:'Included services', gets:'What you get:',
+      pkgLimits:'Important limitations',
       inheritLead:'This package includes everything in the ', inheritTail:', plus the following:',
       scopeInTitle:'What the monthly subscription covers',
       scopeOutTitle:'What is outside the subscription',
+      limitsTitle:'Monthly Service Limits',
+      limitsDesc:'Each package includes a monthly allowance of implementation hours covering the tasks listed in its scope. These are defined limits — not unlimited support.',
+      upTo:'Up to', hoursUnit:'working hours / month',
+      limitsRulesTitle:'How the monthly hours work',
+      limitsRules:[
+        'Monthly working hours cover eligible implementation tasks within the package scope.',
+        'Unused hours do not roll over to the next month.',
+        'Work exceeding the monthly allowance requires your approval and a separate quotation.',
+        'New development is not automatically included in technical support.',
+        'Requests are subject to technical feasibility and the agreed scope.'
+      ],
+      respTitle:'Response Time Policy',
+      respDesc:'Initial response targets for each package:',
+      respNote:'Response time refers to the initial acknowledgment and assessment of a request, not guaranteed resolution time. Resolution depends on the issue’s complexity, required access, client approvals, and third-party dependencies.',
+      businessHours:'Business hours: Sunday to Thursday, 10:00–18:00 (Cairo time), excluding public holidays. Support is not available 24/7.',
+      exclTitle:'What’s Not Included',
+      exclDesc:'The following types of work are assessed and quoted separately, based on a technical assessment:',
+      exclItems:[
+        'New custom features',
+        'Major theme modifications or upgrades',
+        'Complete store redesigns',
+        'Complex custom landing pages',
+        'Advanced third-party integrations',
+        'New app subscriptions or paid themes',
+        'Large product catalog entry tasks',
+        'Major migrations',
+        'Work exceeding the agreed monthly allowance'
+      ],
+      exclRule:'Any work outside your package scope will be assessed and quoted separately. Additional work only starts after your approval.',
+      faqTitle:'Commercial Terms & FAQ',
+      faqDesc:'Short answers to the most common commercial questions.',
+      faq:[
+        {q:'How does billing work?', a:'All packages are billed as a monthly subscription. The subscription covers the services and the monthly hours of your package only.'},
+        {q:'Do unused hours roll over to the next month?', a:'No. Unused monthly hours do not accumulate and cannot be carried over to the next month.'},
+        {q:'Can I request work outside my package scope?', a:'Yes. Any work outside your package scope is assessed and quoted separately, and it starts only after your approval.'},
+        {q:'Is response time the same as resolution time?', a:'No. Response time is the initial acknowledgment and assessment of your request. Resolution depends on the issue’s complexity, required access, client approvals, and third-party dependencies.'},
+        {q:'Do you guarantee higher sales or conversion rates?', a:'No. I do not guarantee specific sales, revenue or conversion improvements. Optimization work improves structure and usability, but results depend on many factors outside the monthly service.'},
+        {q:'Are app subscriptions and paid themes included?', a:'No. Third-party subscriptions, licenses and paid themes are not included in the packages unless explicitly stated in your agreement.'},
+        {q:'Does technical support include new development?', a:'No. Technical support covers eligible existing store issues. New features, sections and custom development are assessed and quoted separately.'},
+        {q:'When is support available?', a:'Business hours are Sunday to Thursday, 10:00–18:00 (Cairo time), excluding public holidays. Support is not available 24/7, and response targets are measured in business hours.'}
+      ],
       footer:'© 2026 Adel Atef Emam — Shopify Developer',
       social:{linkedin:'LinkedIn',behance:'Behance',nzmly:'Nzmly',whatsapp:'WhatsApp',email:'Email'}
     }
@@ -345,130 +499,208 @@ footer{border-top:1px solid var(--border);padding-block:26px;text-align:center;c
      PACKAGE DATA
      card = short bullet list shown on the pricing card
      items = detailed services shown in the details panel
+     limits = package-level limitations shown under the services
      ===================================================== */
   var PACKAGES = {
     bronze: {
-      price:'4,000', popular:false, inherits:null,
+      price:'4,000', popular:false, inherits:null, hoursNum:'3',
       ar: {
         name:'الباقة البرونزية',
-        response:'دعم فني خلال 48 ساعة',
+        tagline:'دعم فني أساسي وصيانة محدودة للمتجر.',
+        response:'رد أولي خلال يومي عمل', respShort:'خلال يومي عمل',
+        hours:'حتى 3 ساعات عمل شهرياً',
         card:[
-          'تحسين صفحات المنتجات (تجربة المستخدم + معدل التحويل).',
-          'تحسين سرعة المتجر وتجربة الموبايل.',
-          'تعديل الأسعار والعروض والباقات الموجودة.',
-          'متابعة مشاكل الثيم والتحديثات.',
-          'دعم فني خلال 48 ساعة.'
+          'تحسين صفحة منتج واحدة موجودة شهرياً',
+          'مراجعة أساسية لسرعة المتجر وسهولة الاستخدام على الموبايل',
+          'تعديلات محدودة على الأسعار والعروض والباقات',
+          'متابعة المشاكل الفنية الحالية في الثيم',
+          'دعم فني لمشاكل المتجر الحالية المؤهلة',
+          'رد أولي خلال يومي عمل'
         ],
         items:[
-          {t:'تحسين صفحات المنتجات', d:'نراجع صفحات منتجاتك الحالية (ترتيب العناصر، الصور، الوصف، أزرار الشراء) ونعدّل تصميمها وترتيبها لتصبح أوضح وأسهل في اتخاذ قرار الشراء.', g:'صفحات منتجات أوضح وأسهل في الاستخدام، مبنية على تحسين تجربة المستخدم ومعدل التحويل.'},
-          {t:'تحسين سرعة المتجر وتجربة الموبايل', d:'فحص الأسباب الشائعة لبطء التحميل (حجم الصور، الأكواد الزائدة، التطبيقات غير الضرورية) ومراجعة شكل المتجر وسلوكه على شاشات الموبايل.', g:'تحميل أسرع وتصفح أريح من الهاتف، حيث يأتي معظم زوار المتاجر.'},
-          {t:'تعديل الأسعار والعروض والباقات', d:'تحديث الأسعار والعروض وأسعار المقارنة وإعدادات الباقات الموجودة بالفعل في المتجر عند طلبك.', g:'متجر محدّث دائمًا بأسعارك وعروضك الحالية دون أن تنشغل بالتفاصيل التقنية.'},
-          {t:'متابعة مشاكل الثيم والتحديثات', d:'متابعة أي أعطال أو أخطاء في الثيم الحالي وإصلاحها، والتعامل مع تأثير تحديثات الثيم على شكل المتجر ووظائفه.', g:'متجر مستقر ومشاكله الفنية الحالية تُعالج بدل أن تتراكم.'},
-          {t:'الدعم الفني خلال 48 ساعة', d:'يتم الرد على طلبات الدعم ومباشرة العمل عليها خلال 48 ساعة.', g:'مسار واضح ومضمون للتواصل عند ظهور أي مشكلة.'}
+          {t:'تحسين صفحات المنتجات (صفحة واحدة شهرياً)', d:'كل شهر أُحسّن صفحة منتج واحدة موجودة لديك — الترتيب، الصور، الوصف، وأزرار الشراء — لتصبح أوضح وأسهل في اتخاذ قرار الشراء. هذا يشمل تحسين صفحة واحدة موجودة، وليس إعادة تصميم كتالوج المنتجات بالكامل.', g:'صفحة منتج أوضح وأسهل للشراء كل شهر.'},
+          {t:'مراجعة سرعة المتجر وسهولة الاستخدام على الموبايل', d:'مراجعة أساسية لسرعة تحميل متجرك وسهولة استخدامه على الموبايل، مع تحسينات محدودة حيثما كانت ممكنة تقنياً (أحجام الصور، الأكواد الواضحة، تنظيف التطبيقات غير الضرورية). تحسين السرعة لا يضمن درجة PageSpeed أو نتيجة أداء محددة.', g:'تحسينات عملية للسرعة والموبايل ضمن ما يسمح به ثيمك الحالي.'},
+          {t:'تعديل الأسعار والعروض والباقات', d:'تعديلات محدودة على الأسعار والعروض وأسعار المقارنة وإعدادات الباقات الموجودة بالفعل في متجرك عند طلبك.', g:'متجر يعكس دائماً أسعارك وعروضك الحالية.'},
+          {t:'متابعة مشاكل الثيم', d:'متابعة المشاكل الفنية الحالية المتعلقة بالثيم وإصلاح الأعطال في الثيم الحالي. لا يشمل هذا الترقيات الكبرى للثيم أو استبداله بالكامل.', g:'متجر مستقر تُعالج مشاكله الفنية الحالية قبل أن تتراكم.'},
+          {t:'الدعم الفني وحل المشاكل', d:'دعم فني وحل مشاكل المتجر الحالية المؤهلة. يغطي الدعم المشاكل الحالية، وليس تطوير ميزات جديدة — الأقسام الجديدة والوظائف المخصصة وتغييرات التصميم الكبرى تُسعَّر بشكل منفصل.', g:'طريق واضح ومضمون للحصول على المساعدة عند ظهور أي مشكلة.'}
+        ],
+        limits:[
+          'تحسين صفحات المنتجات يشمل صفحة منتج واحدة موجودة شهرياً، وليس كتالوج المنتجات بالكامل.',
+          'تحسين السرعة لا يضمن درجة PageSpeed أو نتيجة أداء محددة.',
+          'متابعة الثيم لا تشمل الترقيات الكبرى للثيم أو استبداله بالكامل.',
+          'الدعم الفني يغطي المشاكل الحالية المؤهلة، وليس تطوير ميزات جديدة.',
+          'الأقسام الجديدة والوظائف المخصصة وتغييرات التصميم الكبرى تُسعَّر بشكل منفصل.'
         ]
       },
       en: {
         name:'Bronze Package',
-        response:'Technical support within 48 hours',
+        tagline:'Essential technical support and limited store maintenance.',
+        response:'Initial response within 2 business days', respShort:'Within 2 business days',
+        hours:'Up to 3 working hours / month',
         card:[
-          'Product page optimization (user experience + conversion rate).',
-          'Store speed and mobile experience improvements.',
-          'Editing existing prices, offers and bundles.',
-          'Monitoring theme issues and updates.',
-          'Technical support within 48 hours.'
+          'Monthly optimization of one existing product page',
+          'Basic store speed & mobile usability review',
+          'Limited price, offer & bundle adjustments',
+          'Monitoring of existing theme-related issues',
+          'Support for eligible existing store issues',
+          'Initial response within 2 business days'
         ],
         items:[
-          {t:'Product page optimization', d:'I review your existing product pages (layout, images, description, buy buttons) and refine their design and structure so they are clearer and easier to buy from.', g:'Clearer, easier-to-use product pages built around user experience and conversion rate.'},
-          {t:'Store speed and mobile experience', d:'I check the common causes of slow loading (image sizes, extra code, unnecessary apps) and review how the store looks and behaves on mobile screens.', g:'Faster loading and smoother browsing on phones, where most store visitors come from.'},
-          {t:'Prices, offers and bundles edits', d:'I update prices, offers, compare-at prices and the settings of bundles that already exist in your store, whenever you ask.', g:'A store that always reflects your current prices and offers, without you handling the technical side.'},
-          {t:'Theme issues and updates', d:'I follow up on errors or faults in your current theme, fix them, and handle how theme updates affect your store\u2019s look and functionality.', g:'A stable store where existing technical problems are resolved instead of piling up.'},
-          {t:'Support within 48 hours', d:'Support requests are answered and work begins within 48 hours.', g:'A clear, dependable way to reach me whenever something goes wrong.'}
+          {t:'Product page optimization (one page / month)', d:'Each month I optimize one existing product page — layout, images, description and buy buttons — so it is clearer and easier to buy from. This covers improving one existing page, not redesigning the entire product catalog.', g:'A clearer, easier-to-buy product page every month.'},
+          {t:'Store speed & mobile usability review', d:'A basic review of your store’s loading speed and mobile usability, with limited improvements where technically feasible (image sizes, obvious code issues, cleaning up unnecessary apps). Speed optimization does not guarantee a specific PageSpeed score or performance result.', g:'Practical speed and mobile improvements within what your current theme allows.'},
+          {t:'Price, offer & bundle adjustments', d:'Limited updates to existing prices, offers, compare-at prices and bundle settings in your store, on request.', g:'A store that always reflects your current prices and offers.'},
+          {t:'Theme issue monitoring', d:'Monitoring of existing theme-related technical issues and fixing faults in the current theme. This does not include major theme upgrades or complete theme replacement.', g:'A stable store where current technical issues are handled before they pile up.'},
+          {t:'Technical support & troubleshooting', d:'Technical support and troubleshooting for eligible existing store issues. Support covers existing issues, not new feature development — new sections, custom functionality and major design changes are quoted separately.', g:'A clear, dependable way to get help when something goes wrong.'}
+        ],
+        limits:[
+          'Product page optimization covers one existing product page per month, not the entire product catalog.',
+          'Speed optimization does not guarantee a specific PageSpeed score or performance result.',
+          'Theme monitoring does not include major theme upgrades or complete theme replacement.',
+          'Technical support covers eligible existing issues, not new feature development.',
+          'New sections, custom functionality and major design changes are quoted separately.'
         ]
       }
     },
     silver: {
-      price:'8,000', popular:true, inherits:'bronze',
+      price:'8,000', popular:true, inherits:'bronze', hoursNum:'6',
       ar: {
         name:'الباقة الفضية',
-        response:'دعم فني خلال 24–36 ساعة',
+        tagline:'صيانة مستمرة للمتجر وتحسينات شهرية.',
+        response:'رد أولي خلال يوم عمل واحد', respShort:'خلال يوم عمل واحد',
+        hours:'حتى 6 ساعات عمل شهرياً',
         card:[
-          'جميع مميزات الباقة البرونزية.',
-          'تحسينات شهرية على المتجر.',
-          'إضافة أقسام جديدة حسب الحملات التسويقية.',
-          'إعداد عروض موسمية للمنتجات والباقات.',
-          'تحسين الصفحة الرئيسية شهرياً.',
-          'تقارير بسيطة توضح ما تم تعديله ولماذا.',
-          'دعم فني خلال 24–36 ساعة.'
+          'جميع خدمات الباقة البرونزية',
+          'تحسينات شهرية محدودة على المكونات الحالية',
+          'قسم ثيم قياسي واحد جديد أو معدّل شهرياً',
+          'تعديل العروض الموسمية والباقات ضمن نطاق متفق عليه',
+          'تحسين الصفحة الرئيسية مرة واحدة شهرياً',
+          'تقرير تنفيذ شهري مختصر',
+          'أولوية دعم أعلى من الباقة البرونزية',
+          'رد أولي خلال يوم عمل واحد'
         ],
         items:[
-          {t:'تحسينات شهرية على المتجر', d:'كل شهر نحدد معًا أولويات التحسين (تصميم، تجربة استخدام، سرعة) وننفذها ضمن نطاق الباقة.', g:'متجر يتطور باستمرار بدل أن يبقى على حاله.'},
-          {t:'أقسام جديدة حسب الحملات التسويقية', d:'تصميم وإضافة أقسام للمتجر (بانرات، أقسام عروض، أقسام منتجات مميزة) تتوافق مع حملاتك التسويقية.', g:'متجر متناسق مع حملاتك الإعلانية في وقتها.'},
-          {t:'عروض موسمية للمنتجات والباقات', d:'إعداد وتنفيذ العروض الموسمية على المنتجات والباقات (مثل المواسم والمناسبات) داخل المتجر.', g:'عروض جاهزة وظاهرة بشكل صحيح عند بداية الموسم.'},
-          {t:'تحسين الصفحة الرئيسية شهرياً', d:'مراجعة الصفحة الرئيسية كل شهر وتحسين ترتيب أقسامها ومحتواها بما يخدم أهدافك الحالية.', g:'واجهة رئيسية محدّثة تعكس أولوياتك كل شهر.'},
-          {t:'تقارير بسيطة', d:'تقرير مختصر بعد التنفيذ يوضح ما تم تعديله ولماذا تم تعديله.', g:'وضوح كامل لما يحدث في متجرك وسبب كل تغيير.'},
-          {t:'دعم فني خلال 24–36 ساعة', d:'استجابة أسرع لطلبات الدعم، خلال 24 إلى 36 ساعة.', g:'سرعة أعلى في معالجة المشاكل والطلبات.'}
+          {t:'تحسينات شهرية على المكونات الحالية', d:'تحسينات شهرية محدودة على مكونات المتجر الحالية — تعديلات في الترتيب والمحتوى والتنسيق داخل الثيم الحالي — يتم الاتفاق عليها معاً في بداية كل شهر.', g:'متجر يتطور باستمرار بدل أن يبقى على حاله.'},
+          {t:'قسم ثيم قياسي واحد شهرياً', d:'قسم ثيم قياسي جديد أو معدّل واحد شهرياً، بشرط الجدوى الفنية والمتطلبات المتفق عليها. القسم القياسي يعني قسماً بنطاق معقول مبني على هيكل الثيم الحالي.', g:'أقسام جديدة للحملات أو المحتوى دون تكلفة تطوير ثقيلة.'},
+          {t:'العروض الموسمية وتعديل الباقات', d:'تعديل العروض الموسمية وباقات المنتجات ضمن نطاق متفق عليه — بحيث تُجهَّز وتظهر بشكل صحيح في وقتها.', g:'حملات موسمية تنطلق في موعدها وبشكل صحيح.'},
+          {t:'تحسين الصفحة الرئيسية شهرياً', d:'تحسين واحد للصفحة الرئيسية كل شهر: مراجعة وتحسين ترتيب الأقسام ومحتواها بما يخدم أهدافك الحالية. هذا ليس إعادة تصميم كاملة للصفحة الرئيسية كل شهر.', g:'صفحة رئيسية تعكس أولوياتك الحالية كل شهر.'},
+          {t:'تقرير تنفيذ شهري', d:'تقرير شهري مختصر يوضح ما تم تعديله ولماذا تم تعديله.', g:'وضوح كامل لما يحدث في متجرك وسبب كل تغيير.'},
+          {t:'دعم فني بأولوية أعلى', d:'دعم فني بأولوية أعلى من الباقة البرونزية. الرد الأولي خلال يوم عمل واحد.', g:'إجابات أسرع ومعالجة أسرع للطلبات.'}
+        ],
+        limits:[
+          'القسم القياسي يعني قسماً بنطاق معقول مبني على هيكل الثيم الحالي.',
+          'الأقسام المخصصة المعقدة والوظائف المتقدمة والتكاملات مع الطرف الثالث ليست مشمولة تلقائياً.',
+          'الأقسام الإضافية وطلبات التطوير الكبرى تتطلب تسعيراً منفصلاً.',
+          'تحسين الصفحة الرئيسية لا يعني إعادة تصميمها بالكامل كل شهر.'
         ]
       },
       en: {
         name:'Silver Package',
-        response:'Technical support within 24–36 hours',
+        tagline:'Ongoing store maintenance and monthly improvements.',
+        response:'Initial response within 1 business day', respShort:'Within 1 business day',
+        hours:'Up to 6 working hours / month',
         card:[
-          'All Bronze Package features.',
-          'Monthly store improvements.',
-          'New sections added to match marketing campaigns.',
-          'Seasonal offers for products and bundles.',
-          'Monthly homepage optimization.',
-          'Simple reports explaining what was changed and why.',
-          'Technical support within 24–36 hours.'
+          'All Bronze package services',
+          'Limited monthly improvements to existing components',
+          'One new or modified standard theme section per month',
+          'Seasonal offers & bundle adjustments (agreed scope)',
+          'One monthly homepage optimization',
+          'Concise monthly execution report',
+          'Higher support priority than Bronze',
+          'Initial response within 1 business day'
         ],
         items:[
-          {t:'Monthly store improvements', d:'Each month we agree on improvement priorities (design, user experience, speed) and I carry them out within the scope of the package.', g:'A store that keeps evolving instead of standing still.'},
-          {t:'New sections for marketing campaigns', d:'I design and add store sections (banners, offer sections, featured product sections) that match your marketing campaigns.', g:'A store that is in sync with your ad campaigns when they launch.'},
-          {t:'Seasonal offers for products and bundles', d:'I set up and implement seasonal offers on products and bundles in your store (seasons and special occasions).', g:'Offers that are ready and displayed correctly when the season starts.'},
-          {t:'Monthly homepage optimization', d:'I review the homepage every month and improve the order and content of its sections to serve your current goals.', g:'A refreshed homepage that reflects your priorities each month.'},
-          {t:'Simple reports', d:'A short report after the work explaining what was changed and why.', g:'Full clarity on what happens in your store and the reason behind each change.'},
-          {t:'Support within 24–36 hours', d:'Faster responses to support requests, within 24 to 36 hours.', g:'Quicker handling of issues and requests.'}
+          {t:'Monthly improvements to existing components', d:'Limited monthly improvements to existing store components — layout tweaks, content updates and styling fixes within the current theme — agreed together at the start of each month.', g:'A store that keeps improving steadily instead of standing still.'},
+          {t:'One standard theme section per month', d:'One new or modified standard theme section per month, subject to technical feasibility and agreed requirements. A standard section means a reasonably scoped section built with the existing theme structure.', g:'Fresh campaign or content sections without heavy development cost.'},
+          {t:'Seasonal offers & bundle adjustments', d:'Seasonal offers and product bundle adjustments within an agreed scope — set up and displayed correctly at the right time.', g:'Seasonal campaigns that go live on time and look right.'},
+          {t:'Monthly homepage optimization', d:'One homepage optimization per month: reviewing and improving the order and content of its sections to serve your current goals. This is not a complete homepage redesign every month.', g:'A homepage that reflects your current priorities each month.'},
+          {t:'Monthly execution report', d:'A concise monthly report explaining what was changed and why.', g:'Full clarity on what happens in your store and the reason behind each change.'},
+          {t:'Priority technical support', d:'Technical support with higher priority than Bronze. Initial response within 1 business day.', g:'Faster answers and quicker handling of requests.'}
+        ],
+        limits:[
+          'A standard section means a reasonably scoped section using the existing theme structure.',
+          'Complex custom sections, advanced functionality and third-party integrations are not automatically included.',
+          'Additional sections and major development requests require separate quotations.',
+          'Homepage optimization does not mean a complete homepage redesign every month.'
         ]
       }
     },
     gold: {
-      price:'12,000', popular:false, inherits:'silver',
+      price:'12,000', popular:false, inherits:'silver', hoursNum:'10',
       ar: {
         name:'الباقة الذهبية',
-        response:'دعم فني بأولوية عالية',
+        tagline:'دعم فني بأولوية عالية وتحسين مستمر للمتجر.',
+        response:'رد أولي خلال 4 ساعات عمل', respShort:'خلال 4 ساعات عمل',
+        hours:'حتى 10 ساعات عمل شهرياً',
         card:[
-          'جميع مميزات الباقة الفضية.',
-          'إنشاء صفحات هبوط للحملات الإعلانية.',
-          'تحسين سرعة المتجر ومعدل التحويل.',
-          'مراجعة تجربة المستخدم وتحسين رحلة الشراء.',
-          'دعم فني بأولوية عالية.'
+          'جميع خدمات الباقة الفضية',
+          'تحسين المتجر للحملات والعروض الترويجية',
+          'مراجعة شهرية للسرعة والأداء',
+          'مراجعة شهرية لتجربة المستخدم ورحلة الشراء',
+          'تحسينات محدودة تركز على معدل التحويل',
+          'أعلى أولوية دعم',
+          'رد أولي خلال 4 ساعات عمل'
         ],
         items:[
-          {t:'صفحات هبوط للحملات الإعلانية', d:'تصميم وبناء صفحات هبوط مخصصة لحملاتك الإعلانية، بتركيز على رسالة الحملة وزر الشراء.', g:'صفحات مخصصة لكل حملة بدل توجيه الزوار لصفحات عامة.'},
-          {t:'تحسين سرعة المتجر ومعدل التحويل', d:'تحسين أعمق للأداء والسرعة، ومراجعة العناصر التي تؤثر على قرار الشراء وتعديلها.', g:'متجر أسرع وأكثر وضوحًا في دفع الزائر نحو الشراء.'},
-          {t:'مراجعة تجربة المستخدم وتحسين رحلة الشراء', d:'مراجعة رحلة العميل من الدخول إلى إتمام الطلب، وتحديد نقاط التعثر وتحسينها.', g:'رحلة شراء أسهل وأقل تعقيدًا.'},
-          {t:'دعم فني بأولوية عالية', d:'طلباتك تأتي في مقدمة قائمة الدعم وتُعالج قبل الباقات الأخرى.', g:'أولوية في الاستجابة والمعالجة.'}
+          {t:'تحسين المتجر للحملات والعروض الترويجية', d:'أُحسّن صفحات متجرك الحالية ومكونات الثيم الحالي لتناسب الحملات الترويجية، لتظهر عروضك بشكل صحيح وتحقق نتائج أفضل — دون بناء صفحات مخصصة جديدة.', list:[
+            'تحسين صفحات المنتجات الحالية للحملات الترويجية.',
+            'ضبط وتحسين أقسام العروض الترويجية باستخدام مكونات ثيم شوبيفاي الحالي.',
+            'تحسين المحتوى الترويجي في الصفحة الرئيسية وإبراز الحملات.',
+            'تنظيم العروض الموسمية والخصومات وباقات المنتجات ضمن نطاق متفق عليه.',
+            'تحسين تجربة التسوق للعملاء الذين يزورون صفحات العروض.'
+          ], g:'صفحات متجر جاهزة للحملات مبنية على ثيمك الحالي، دون تطوير مخصص جديد.'},
+          {t:'مراجعة شهرية للسرعة والأداء', d:'مراجعة شهرية لسرعة متجرك وأدائه، مع تحسينات محدودة حيثما كانت ممكنة تقنياً. تحسين السرعة لا يضمن درجة PageSpeed أو نتيجة أداء محددة.', g:'متجر يظل سريعاً مع تغيّر المحتوى والحملات.'},
+          {t:'مراجعة شهرية لتجربة المستخدم ورحلة الشراء', d:'مراجعة شهرية لتجربة المستخدم ورحلة العميل — من أول زيارة حتى إتمام الطلب — مع تحديد نقاط التعثر ومشاكل سهولة الاستخدام.', g:'مسار أسهل وأوضح من الزيارة إلى الشراء.'},
+          {t:'تحسينات تركز على معدل التحويل', d:'تحسينات محدودة تركز على معدل التحويل، مبنية على مشاكل سهولة الاستخدام المحددة في المراجعة الشهرية. خدمات تحسين التحويل (CRO) لا تضمن زيادة المبيعات أو معدلات التحويل.', g:'تغييرات عملية تساعد الزائر على إتمام الشراء.'},
+          {t:'أعلى أولوية دعم', d:'أعلى أولوية دعم بين الباقات الثلاث، مع رد أولي خلال 4 ساعات عمل. الأولوية الأعلى لا تعني توفراً غير محدود أو حلاً فورياً مضموناً.', g:'طلباتك تُعالج أولاً وبأسرع رد أولي.'}
+        ],
+        limits:[
+          'لا تشمل بناء صفحات هبوط مخصصة للحملات من الصفر.',
+          'لا تشمل قوالب صفحات مخصصة معقدة أو وظائف حملات متقدمة.',
+          'أي تطوير جديد لصفحات هبوط مخصصة يُسعَّر بشكل منفصل بعد التقييم الفني والموافقة.',
+          'يركز تحسين الحملات على تحسين صفحات ومكونات المتجر الحالية بدلاً من تطوير صفحات مخصصة جديدة بالكامل.',
+          'خدمات تحسين التحويل (CRO) لا تضمن زيادة المبيعات أو معدلات التحويل.',
+          'أولوية الدعم الأعلى لا تعني توفراً غير محدود أو حلاً فورياً مضموناً.'
         ]
       },
       en: {
         name:'Gold Package',
-        response:'High-priority technical support',
+        tagline:'Priority technical support and continuous store optimization.',
+        response:'Initial response within 4 business hours', respShort:'Within 4 business hours',
+        hours:'Up to 10 working hours / month',
         card:[
-          'All Silver Package features.',
-          'Landing pages for ad campaigns.',
-          'Store speed and conversion rate optimization.',
-          'User experience review and buying journey improvements.',
-          'High-priority technical support.'
+          'All Silver package services',
+          'Campaign & promotional store optimization',
+          'Monthly speed & performance review',
+          'Monthly UX & customer journey review',
+          'Limited conversion-focused improvements',
+          'Highest support priority',
+          'Initial response within 4 business hours'
         ],
         items:[
-          {t:'Landing pages for ad campaigns', d:'I design and build dedicated landing pages for your ad campaigns, focused on the campaign message and the buy button.', g:'A dedicated page for each campaign instead of sending visitors to generic pages.'},
-          {t:'Store speed and conversion optimization', d:'Deeper performance and speed improvements, plus a review and adjustment of the elements that influence the buying decision.', g:'A faster store that is clearer at moving visitors toward purchase.'},
-          {t:'UX review and buying journey improvements', d:'I review the customer journey from first visit to completed order, find where people get stuck, and improve those points.', g:'An easier, less complicated path to purchase.'},
-          {t:'High-priority support', d:'Your requests go to the front of the support queue and are handled before other packages.', g:'Priority in response and handling.'}
+          {t:'Campaign & promotional store optimization', d:'I optimize your existing store pages and theme components for promotional campaigns, so your offers look right and sell better — without building new custom pages.', list:[
+            'Optimize existing product pages for promotional campaigns.',
+            'Configure and improve promotional sections using existing Shopify theme components.',
+            'Improve homepage promotional content and campaign visibility.',
+            'Organize seasonal offers, discounts and product bundles within an agreed scope.',
+            'Improve the shopping experience for customers visiting promotional pages.'
+          ], g:'Campaign-ready store pages built on your current theme, without new custom development.'},
+          {t:'Monthly speed & performance review', d:'A monthly review of your store’s speed and performance, with limited improvements where technically feasible. Speed optimization does not guarantee a specific PageSpeed score or performance result.', g:'A store that stays fast as content and campaigns change.'},
+          {t:'Monthly UX & customer journey review', d:'A monthly review of the user experience and the customer journey — from first visit to completed order — identifying friction points and usability issues.', g:'A smoother, clearer path from visit to purchase.'},
+          {t:'Conversion-focused improvements', d:'Limited conversion-focused improvements based on the usability issues identified in the monthly review. CRO services do not guarantee increased sales or conversion rates.', g:'Practical changes aimed at helping visitors complete their purchase.'},
+          {t:'Highest support priority', d:'The highest support priority among the three packages, with an initial response within 4 business hours. Higher priority does not mean unlimited availability or guaranteed immediate resolution.', g:'Your requests are handled first, with the fastest initial response.'}
+        ],
+        limits:[
+          'Does not include building custom campaign landing pages from scratch.',
+          'Does not include complex custom page templates or advanced campaign functionality.',
+          'Any new custom landing page development is quoted separately after technical assessment and approval.',
+          'Campaign optimization focuses on improving existing store pages and components rather than developing entirely new custom pages.',
+          'CRO services do not guarantee increased sales or conversion rates.',
+          'Higher support priority does not mean unlimited availability or guaranteed immediate resolution.'
         ]
       }
     }
   };
+
   var ORDER = ['bronze','silver','gold'];
 
   /* Scope text (same for all packages) */
@@ -543,6 +775,7 @@ footer{border-top:1px solid var(--border);padding-block:26px;text-align:center;c
         (p.popular ? '<span class="badge">' + t.popular + '</span>' : '') +
         '<h3 class="pkg-name">' + c.name + '</h3>' +
         '<div class="price"><span class="num">' + p.price + '</span><span class="unit">' + t.currency + ' ' + (state.lang === 'ar' ? '/ ' : '') + t.perMonth + '</span></div>' +
+        '<div class="hours-chip">' + CLOCK + '<span>' + c.hours + '</span></div>' +
         '<ul class="features">' + c.card.map(function(f){ return '<li>' + CHECK + '<span>' + f + '</span></li>'; }).join('') + '</ul>' +
         '<div class="actions">' +
           '<button type="button" class="btn btn-ghost" data-details="' + key + '">' + t.viewDetails + '</button>' +
@@ -559,18 +792,24 @@ footer{border-top:1px solid var(--border);padding-block:26px;text-align:center;c
     if (p.inherits){
       inherit = '<p class="inherit">' + t.inheritLead + '<b>' + PACKAGES[p.inherits][state.lang].name + '</b>' + t.inheritTail + '</p>';
     }
+    var limitsHtml = (c.limits && c.limits.length) ?
+      '<h4 class="d-sub">' + t.pkgLimits + '</h4><ul class="limits-list">' +
+      c.limits.map(function(l){ return '<li>' + DASH + '<span>' + l + '</span></li>'; }).join('') + '</ul>' : '';
     $details.innerHTML =
       '<div class="d-head">' +
         '<div><h3>' + c.name + '</h3>' +
         '<div class="d-price"><bdi>' + p.price + '</bdi> ' + t.currency + ' ' + (state.lang === 'ar' ? '/ ' : '') + t.perMonth + '</div></div>' +
         '<button type="button" class="close" id="closeDetails" aria-label="' + t.close + '">&times;</button>' +
       '</div>' +
-      '<div class="d-meta"><span class="chip">' + t.response + ': ' + c.response + '</span></div>' +
+      '<p class="d-tagline">' + c.tagline + '</p>' +
+      '<div class="d-meta"><span class="chip">' + CLOCK + '<span>' + c.hours + '</span></span><span class="chip">' + t.response + ': ' + c.response + '</span></div>' +
       '<h4 class="d-sub">' + t.included + '</h4>' + inherit +
       '<div class="services">' + c.items.map(function(i){
         return '<div class="service"><h4>' + CHECK + '<span>' + i.t + '</span></h4><p>' + i.d + '</p>' +
+               (i.list ? '<ul class="service-list">' + i.list.map(function(li){ return '<li>' + li + '</li>'; }).join('') + '</ul>' : '') +
                '<p class="gets"><b>' + t.gets + '</b> ' + i.g + '</p></div>';
       }).join('') + '</div>' +
+      limitsHtml +
       '<div class="scope">' +
         '<div class="in"><h4>' + t.scopeInTitle + '</h4><p>' + sc.inText + '</p></div>' +
         '<div class="out"><h4>' + t.scopeOutTitle + '</h4><p>' + sc.outText + '</p></div>' +
@@ -579,11 +818,55 @@ footer{border-top:1px solid var(--border);padding-block:26px;text-align:center;c
     $details.hidden = false;
   }
 
+  /* ----- policy sections: monthly limits, response policy, exclusions, FAQ ----- */
+  function renderPolicies(){
+    var host = document.getElementById('policies');
+    if (!host) return;
+    var t = UI[state.lang];
+    var limitCards = ORDER.map(function(key){
+      var p = PACKAGES[key], c = p[state.lang];
+      return '<div class="limit-card' + (p.popular ? ' featured' : '') + '">' +
+        '<h4>' + c.name + '</h4>' +
+        '<div class="limit-num"><span class="up">' + t.upTo + '</span><bdi>' + p.hoursNum + '</bdi>' +
+        '<span class="limit-unit">' + t.hoursUnit + '</span></div>' +
+      '</div>';
+    }).join('');
+    var respCards = ORDER.map(function(key){
+      var p = PACKAGES[key], c = p[state.lang];
+      return '<div class="limit-card' + (p.popular ? ' featured' : '') + '">' +
+        '<h4>' + c.name + '</h4><div class="resp-time">' + c.respShort + '</div>' +
+      '</div>';
+    }).join('');
+    host.innerHTML =
+      '<section class="policy" id="limits">' +
+        '<div class="section-head"><h2>' + t.limitsTitle + '</h2><p>' + t.limitsDesc + '</p></div>' +
+        '<div class="policy-grid">' + limitCards + '</div>' +
+        '<h3 class="rules-title">' + t.limitsRulesTitle + '</h3>' +
+        '<ul class="rules">' + t.limitsRules.map(function(r){ return '<li>' + DASH + '<span>' + r + '</span></li>'; }).join('') + '</ul>' +
+      '</section>' +
+      '<section class="policy" id="response-policy">' +
+        '<div class="section-head"><h2>' + t.respTitle + '</h2><p>' + t.respDesc + '</p></div>' +
+        '<div class="policy-grid">' + respCards + '</div>' +
+        '<p class="note">' + t.respNote + '</p>' +
+        '<p class="note">' + CLOCK + '<span>' + t.businessHours + '</span></p>' +
+      '</section>' +
+      '<section class="policy" id="exclusions">' +
+        '<div class="section-head"><h2>' + t.exclTitle + '</h2><p>' + t.exclDesc + '</p></div>' +
+        '<div class="excl-grid">' + t.exclItems.map(function(x){ return '<div class="excl-item">' + CROSS + '<span>' + x + '</span></div>'; }).join('') + '</div>' +
+        '<p class="note warn">' + t.exclRule + '</p>' +
+      '</section>' +
+      '<section class="policy" id="faq">' +
+        '<div class="section-head"><h2>' + t.faqTitle + '</h2><p>' + t.faqDesc + '</p></div>' +
+        '<div class="faq">' + t.faq.map(function(f){ return '<details><summary><span>' + f.q + '</span></summary><div class="a">' + f.a + '</div></details>'; }).join('') + '</div>' +
+      '</section>';
+  }
+
   function renderAll(){
     applyStaticText();
     renderSocials();
     renderCards();
     renderDetails();
+    renderPolicies();
   }
 
   /* =====================================================
